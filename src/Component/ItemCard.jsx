@@ -1,0 +1,50 @@
+import React from "react";
+import { useCart } from "../Context/CartContext";
+
+const ItemCard = ({ product }) => {
+
+ const {addToCart} = useCart();
+
+  return (
+    <div className="flex flex-col p-4 bg-white text-black rounded-2xl shadow-lg border border-green-700">
+      {/* Image */}
+      <div className="h-40 flex justify-center items-center">
+        <img
+          src={product.image}
+          alt={product.title}
+          className="h-full object-contain"
+        />
+      </div>
+
+      {/* Title */}
+      <h3 className="mt-2 text-lg font-semibold text-green-950 line-clamp-2">
+        {product.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-sm text-gray-600 line-clamp-3">
+        {product.description}
+      </p>
+
+      {/* Category + Rating */}
+      <div className="mt-2 flex justify-between text-sm text-gray-700">
+        <span className="italic">{product.category}</span>
+        <span>⭐ {product.rating.rate}</span>
+      </div>
+
+      {/* Price + Button */}
+      <div className="mt-auto flex justify-between items-center p-2">
+        <span className="px-3 py-1 bg-black text-white rounded-sm font-semibold">
+          ${product.price}
+        </span>
+        <button onClick={()=>addToCart(product)}
+        className="bg-green-950 rounded-md text-white px-3 py-1 hover:bg-green-800"
+        >
+          Add to cart
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default ItemCard;
