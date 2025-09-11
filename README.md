@@ -15,7 +15,8 @@ Core Features:
 
 📊 Automatic calculation of total items and prices.
 
-⚙️ Tech Stack
+
+Tech Stack:
 
 Frontend: React, React Router, Context API, Tailwind CSS
 
