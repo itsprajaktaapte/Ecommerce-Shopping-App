@@ -90,14 +90,14 @@ const Body = () => {
         />
         {/*  search product */}
         <button
-          className="bg-green-950 p-1 text-white rounded-md"
+          className="bg-green-950 p-1 text-white rounded-md hover:bg-green-700 hover:text-white"
           onClick={handleSearch}
         >
           Search
         </button>
         {/* check top rated product */}
         <button
-          className="bg-green-950 p-1 text-white rounded-md"
+          className="bg-green-950 p-1 text-white rounded-md hover:bg-green-700 hover:text-white"
           onClick={handleTopRated}
         >
           Top Rated

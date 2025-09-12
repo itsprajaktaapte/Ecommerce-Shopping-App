@@ -24,7 +24,7 @@ const Cart = () => {
                   {/* Quantity Controls */}
                   <div className="flex items-center border rounded-lg overflow-hidden">
                     <button onClick={() => decreaseQty(item.id)} className="px-3 py-1 bg-gray-200 hover:bg-gray-300">
-                      −
+                      -
                     </button>
                     <span className="px-4 py-1">{item.qty}</span>
                     <button onClick={() => increaseQty(item.id)}className="px-3 py-1 bg-gray-200 hover:bg-gray-300">
