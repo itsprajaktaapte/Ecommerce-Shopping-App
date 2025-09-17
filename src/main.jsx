@@ -9,6 +9,7 @@ import Login from "./Pages/Login.jsx";
 import Products from "./Pages/Products.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
 import { UserProvider } from "./Context/UserContext.jsx";
+import Checkout from "./Pages/Checkout.jsx";
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "/products", element: <Products /> },
       { path: "/cart", element: <Cart /> },
       { path: "/login", element: <Login /> },
+      { path: "/checkout", element: <Checkout /> },
     ],
   },
 ]);
