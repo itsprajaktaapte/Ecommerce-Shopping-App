@@ -20,6 +20,7 @@ const Navbar = () => {
       <nav className="w-3/4 text-white p-4 flex justify-end gap-8 shadow-md">
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
+        <Link to="/favorite">Favorite</Link>
         <Link to="/cart">Cart ({totalItems})</Link>
       
         {user? 

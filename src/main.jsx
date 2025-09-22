@@ -10,6 +10,8 @@ import Products from "./Pages/Products.jsx";
 import { CartProvider } from "./Context/CartContext.jsx";
 import { UserProvider } from "./Context/UserContext.jsx";
 import Checkout from "./Pages/Checkout.jsx";
+import { WishlistProvider } from "./Context/WishlistContext.jsx";
+import WishList from "./Pages/WishList.jsx";
 
 
 const router = createBrowserRouter([
@@ -19,6 +21,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/products", element: <Products /> },
+      { path: "/favorite", element: <WishList /> },
       { path: "/cart", element: <Cart /> },
       { path: "/login", element: <Login /> },
       { path: "/checkout", element: <Checkout /> },
@@ -30,7 +33,9 @@ createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CartProvider>  
       <UserProvider>
+        <WishlistProvider>
         <RouterProvider router={router} />
+        </WishlistProvider>
       </UserProvider>
     </CartProvider>
   </React.StrictMode>

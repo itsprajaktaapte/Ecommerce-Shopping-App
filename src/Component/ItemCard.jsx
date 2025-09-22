@@ -1,9 +1,15 @@
-import React from "react";
-import { useCart } from "../Context/CartContext";
+import React, { memo } from "react";
+import { useWishlist } from "../Context/WishlistContext";
 
-const ItemCard = ({ product }) => {
+const ItemCard = memo(({ product, addToCart, cartItems }) => {
+ 
 
- const {addToCart} = useCart();
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const isWishListed = wishlist?.some((item) => item.id === product.id);
+
+  // Optional: show quantity in cart
+  const quantityInCart = cartItems?.find((item) => item.id === product.id)?.qty || 0;
+  
 
   return (
     <div className="flex flex-col p-4 bg-white text-black rounded-2xl shadow-lg border border-green-700">
@@ -37,14 +43,32 @@ const ItemCard = ({ product }) => {
         <span className="px-3 py-1 bg-black text-white rounded-sm font-semibold">
           ${product.price}
         </span>
-        <button onClick={()=>addToCart(product)}
-        className="bg-green-950 rounded-md text-white px-3 py-1 hover:bg-green-800"
+
+        <button
+          onClick={() => addToCart(product)}
+          className="bg-green-950 rounded-md text-white px-3 py-1 hover:bg-green-800"
         >
-          Add to cart
+          Add to cart {quantityInCart > 0 && `(${quantityInCart})`}
         </button>
+
+        {isWishListed ? (
+          <button
+            className="bg-purple-500 text-black px-3 py-1 rounded"
+            onClick={() => removeFromWishlist(product.id)}
+          >
+            Remove ❤️
+          </button>
+        ) : (
+          <button
+            className="bg-gray-300 px-3 py-1 rounded"
+            onClick={() => addToWishlist(product)}
+          >
+            ❤️ Wishlist
+          </button>
+        )}
       </div>
     </div>
   );
-};
+});
 
 export default ItemCard;
