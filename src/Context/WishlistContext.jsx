@@ -35,5 +35,5 @@ export const WishlistProvider = ({ children }) => {
   );
 };
 
-// Custom hook
+// Custom hook to use anywhere
 export const useWishlist = () => useContext(WishlistContext);
